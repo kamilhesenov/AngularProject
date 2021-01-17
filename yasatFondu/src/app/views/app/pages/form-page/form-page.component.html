@@ -1,0 +1,368 @@
+<div class="layout-holder">
+    <div class="layout-holder__banner">
+        <div class="layout-holder__banner__basic"></div>
+    </div>
+    <div class="layout-holder__content">
+        <app-header></app-header>
+        <form #userPost="ngForm" [formGroup]="form" (ngSubmit)="onSubmit(userPost.value)">
+            <div class="layout-holder__content__body">
+                <div class="layout-holder__content__body__form">
+                    <div class="layout-holder__content__body__form__head">
+                        <h1 class="layout-holder__content__body__form__head__title">Şəhid ailələri və yaralılarla görüş
+                        </h1>
+                    </div>
+                    <div class="layout-holder__content__body__form__holder">
+                        <div class="layout-holder__content__body__form__holder__section">
+                            <h2 class="layout-holder__content__body__form__holder__section__title">Şəhidin şəxsi
+                                məlumatları</h2>
+                            <div class="layout-holder__content__body__form__holder__section__area">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="name" class="input-label">Ad</label>
+                                            <input type="text" ngModel formControlName="name"  class="input-control" placeholder="Ad">
+                                            <div class="text-danger" *ngIf="name.hasError('required') && name.touched"><div>The name is required</div></div> 
+                                            <div class="text-danger" *ngIf="name.hasError('maxlength')"><div>The name is must be maxsimum 50 character</div></div> 
+                                            <div class="text-danger" *ngIf="name.hasError('minlength')"><div>The name is must be minimum 2 character</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="surname" class="input-label">Soyad</label>
+                                            <input type="text" ngModel formControlName="surname" class="input-control" placeholder="Soyad">
+                                            <div class="text-danger" *ngIf="surname.hasError('required') && surname.touched"><div>The surname is required</div></div> 
+                                            <div class="text-danger" *ngIf="surname.hasError('maxlength')"><div>The surname is must be maxsimum 50 character</div></div> 
+                                            <div class="text-danger" *ngIf="surname.hasError('minlength')"><div>The surname is must be minimum 2 character</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="fathername" class="input-label">Ata adı</label>
+                                            <input type="text" ngModel formControlName="fathername"  class="input-control" placeholder="Ata adı">
+                                            <div class="text-danger" *ngIf="fathername.hasError('required') && fathername.touched"><div>The fathername is required</div></div> 
+                                            <div class="text-danger" *ngIf="fathername.hasError('maxlength')"><div>The fathername is must be maxsimum 50 character</div></div> 
+                                            <div class="text-danger" *ngIf="fathername.hasError('minlength')"><div>The fathername is must be minimum 2 character</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="birthdate" class="input-label">Doğum tarixi</label>
+                                            <input type="date" ngModel formControlName="birthdate" class="input-control" placeholder="Doğum tarixi">
+                                            <div class="text-danger" *ngIf="birthdate.hasError('required') && birthdate.touched"><div>The birthdate is required</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="familyAddress" class="input-label">Yaşadığı ünvan</label>
+                                            <input type="text" ngModel formControlName="familyAddress" class="input-control" placeholder="Yaşadığı ünvan">
+                                            <div class="text-danger" *ngIf="familyAddress.hasError('required') && familyAddress.touched"><div>The adress is required</div></div> 
+                                            <div class="text-danger" *ngIf="familyAddress.hasError('maxlength')"><div>The adress is must be maxsimum 250 character</div></div> 
+                                            <div class="text-danger" *ngIf="familyAddress.hasError('minlength')"><div>The adress is must be minimum 2 character</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="contactInfo" class="input-label">Əlaqə vasitəsi</label>
+                                            <input type="text" ngModel formControlName="contactInfo" class="input-control" placeholder="Əlaqə vasitəsi">
+                                            <div class="text-danger" *ngIf="contactInfo.hasError('required') && contactInfo.touched"><div>The contact Phone is required</div></div> 
+                                            <div class="text-danger" *ngIf="contactInfo.hasError('maxlength')"><div>The contact Phone is must be maxsimum 250 character</div></div> 
+                                            <div class="text-danger" *ngIf="contactInfo.hasError('minlength')"><div>The contact Phone is must be minimum 1 character</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="fin" class="input-label">FİN nömrə və ya hərbi biletin nömrəsi</label>
+                                            <input type="text" ngModel formControlName="fin" class="input-control" placeholder="Nömrəni qeyd ediniz">
+                                            <div class="text-danger" *ngIf="fin.hasError('maxlength')"><div>The fin code is must be maxsimum 7 character</div></div> 
+                                            <div class="text-danger" *ngIf="fin.hasError('minlength')"><div>The fin code is must be minimum 7 character</div></div> 
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper has-icon m-b-20">
+                                            <label class="input-label">Şəhid olduğu rayon</label>
+                                            <div class="input-wrapper">
+                                                <select class="input-control">
+                                                    <option selected="selected"  disabled="disabled">Seçiniz</option>
+                                                    <option  *ngFor='let city of cities["regions"]' [value]="city.id">{{city.name}}</option>
+                                                </select>
+                                                <span class="input-icon icon-chevron-down"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20">
+                                            <label for="dateOfMartyrdomOrVeteran" class="input-label">Şəhid olduğu tarix</label>
+                                            <input type="date" ngModel formControlName="dateOfMartyrdomOrVeteran" class="input-control" placeholder="Şəhid olduğu tarix">
+                                            <div class="text-danger" *ngIf="dateOfMartyrdomOrVeteran.hasError('required') && dateOfMartyrdomOrVeteran.touched"><div>The dateOfMartyrdomOrVeteran is required</div></div> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="input-wrapper m-b-20 ">
+                                            <label for="" class="input-label">Şəxsiyyət vəsiqəsinin və ya hərbi biletin
+                                                şəkli</label>
+                                            <div class="fileupload">
+                                                <span class="fileupload-placeholder">Fayl</span>
+                                                <label for="file"
+                                                    class="fileupload-button btn btn-small btn-primary" (click)="Upload()">Yüklə<input
+                                                        id="file" type="file" (change)="handleFileInput($event)"></label>
+                                            </div>
+                                            <div class="fileupload-list">
+                                                <div class="fileupload-file">
+                                                    <span class="fileupload-file__remove icon-times"></span>
+                                                    <span class="fileupload-file__name">photo</span>
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-holder__content__body__form__holder__section">
+                            <h2 class="layout-holder__content__body__form__holder__section__title">Şəhidin dövlət
+                                tərəfindən təltif, orden, medal və ya fəxri ad alıbsa aldığı tarix</h2>
+                            <div class="layout-holder__content__body__form__holder__section__area">
+                                <div class="layout-holder__content__body__form__holder__section__area__block">
+                                    <div class="layout-holder__content__body__form__holder__section__area__block__list">
+                                        <div
+                                            class="layout-holder__content__body__form__holder__section__area__block__list__item">
+                                            <div
+                                                class="layout-holder__content__body__form__holder__section__area__block__list__item__heading">
+                                                <h4
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__title">
+                                                    #1</h4>
+                                                <span
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__remove icon-times"></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-8">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="rewardsName" class="input-label">Fəxri adın təsviri</label>
+                                                        <input type="text" ngModel formControlName="rewardsName" class="input-control" placeholder="Fəxri adın təsviri">
+                                                        <div class="text-danger" *ngIf="rewardsName.hasError('required') && rewardsName.touched"><div>The Description of the honorary title is required</div></div> 
+                                                        <div class="text-danger" *ngIf="rewardsName.hasError('maxlength')"><div>The Description of the honorary title is must be maxsimum 1000 character</div></div> 
+                                                        <div class="text-danger" *ngIf="rewardsName.hasError('minlength')"><div>The Description of the honorary title is must be minimum 1 character</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="rewardsDate" class="input-label">Tarix</label>
+                                                        <input type="date" ngModel formControlName="rewardsDate" class="input-control" placeholder="Tarix">
+                                                        <div class="text-danger" *ngIf="rewardsDate.hasError('required') && rewardsDate.touched"><div>The Date is required</div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-fluid btn-transparent">Əlavə et</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-holder__content__body__form__holder__section">
+                            <h2 class="layout-holder__content__body__form__holder__section__title">Şəhidin övladları
+                                haqqında məlumat</h2>
+                            <div class="layout-holder__content__body__form__holder__section__area">
+    
+                                <div class="layout-holder__content__body__form__holder__section__area__block">
+                                    <div class="layout-holder__content__body__form__holder__section__area__block__list">
+                                        <div
+                                            class="layout-holder__content__body__form__holder__section__area__block__list__item">
+                                            <div
+                                                class="layout-holder__content__body__form__holder__section__area__block__list__item__heading">
+                                                <h4
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__title">
+                                                    #1</h4>
+                                                <span
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__remove icon-times"></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label class="input-label">Cinsi</label>
+                                                        <div
+                                                            class="layout-holder__content__body__form__holder__section__area">
+                                                            <div class="radio-group">
+                                                                <label for="genderChildrenType" class="radio">
+                                                                    <input name="gender" type="radio"
+                                                                        id="genderChildrenType" value=1>
+                                                                    <span class="radio-control"></span>
+                                                                    <span class="radio-label">Kişi</span>
+                                                                </label>
+                                                                <label for="genderChildrenType2" class="radio">
+                                                                    <input name="gender" type="radio"
+                                                                        id="genderChildrenType2" value=2>
+                                                                    <span class="radio-control"></span>
+                                                                    <span class="radio-label">Qadın</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="childrenName" class="input-label">Adı</label>
+                                                        <input type="text" ngModel formControlName="childrenName" class="input-control" placeholder="Adı">
+                                                        <div class="text-danger" *ngIf="childrenName.hasError('required') && childrenName.touched"><div>The name is required</div></div> 
+                                                        <div class="text-danger" *ngIf="childrenName.hasError('maxlength')"><div>The name is must be maxsimum 50 character</div></div> 
+                                                        <div class="text-danger" *ngIf="childrenName.hasError('minlength')"><div>The name is must be minimum 2 character</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="childrenSurname" class="input-label">Soyadı</label>
+                                                        <input type="text" ngModel formControlName="childrenSurname" class="input-control" placeholder="Soyadı">
+                                                        <div class="text-danger" *ngIf="childrenSurname.hasError('required') && childrenSurname.touched"><div>The surname is required</div></div> 
+                                                        <div class="text-danger" *ngIf="childrenSurname.hasError('maxlength')"><div>The surname is must be maxsimum 50 character</div></div> 
+                                                        <div class="text-danger" *ngIf="childrenSurname.hasError('minlength')"><div>The surname is must be minimum 2 character</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="childrenfin" class="input-label">Fin kod</label>
+                                                        <input type="text" ngModel formControlName="childrenfin" class="input-control" placeholder="Fin kod">
+                                                        <div class="text-danger" *ngIf="childrenfin.hasError('maxlength')"><div>The fin code is must be maxsimum 7 character</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="childrenbirthday" class="input-label">Doğum tarixi</label>
+                                                        <input type="date" ngModel formControlName="childrenbirthday" class="input-control" placeholder="Doğum tarixi">
+                                                        <div class="text-danger" *ngIf="childrenbirthday.hasError('required') && childrenbirthday.touched"><div>The birhday is required</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label class="input-label">Şəxsiyyət vəsiqəsinin şəkili
+                                                            (yalnız
+                                                            ön tərəf)</label>
+                                                        <div class="fileupload">
+                                                            <span class="fileupload-placeholder">Fayl</span>
+                                                            <label for="file"
+                                                                class="fileupload-button btn btn-small btn-primary" (click)="Upload()">Yüklə<input 
+                                                                    id="file" type="file" (change)="handleFileInput($event)"></label>
+                                                        </div>
+                                                        <div class="fileupload-list">
+                                                            <div class="fileupload-file">
+                                                                <span class="fileupload-file__remove icon-times"></span>
+                                                                <span class="fileupload-file__name">photo</span>
+                                                                
+                                                            </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <button class="btn btn-fluid btn-transparent">Əlavə et</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-holder__content__body__form__holder__section">
+                            <h2 class="layout-holder__content__body__form__holder__section__title">Ailə üzvlərinin
+                                mülkiyyətində olan mənzil və ya fərdi evi haqqında məlumat</h2>
+                            <div class="layout-holder__content__body__form__holder__section__area">
+                                <div class="layout-holder__content__body__form__holder__section__area__block">
+                                    <div class="layout-holder__content__body__form__holder__section__area__block__list">
+                                        <div
+                                            class="layout-holder__content__body__form__holder__section__area__block__list__item">
+                                            <div
+                                                class="layout-holder__content__body__form__holder__section__area__block__list__item__heading">
+                                                <h4
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__title">
+                                                    #1</h4>
+                                                <span
+                                                    class="layout-holder__content__body__form__holder__section__area__block__list__item__heading__remove icon-times"></span>
+                                            </div>
+                                            <h3
+                                                class="layout-holder__content__body__form__holder__section__area__title">
+                                                Mənzil və ya fərdi evin əsas məlumatları</h3>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="radio-group m-b-20">
+                                                        <label for="hasDocumentYes" class="radio">
+                                                            <input type="radio" id="hasDocumentYes" name="document"
+                                                                value=true>
+                                                            <span class="radio-control"></span>
+                                                            <span class="radio-label">Sənədli</span>
+                                                        </label>
+                                                        <label for="hasDocumentNo" class="radio">
+                                                            <input type="radio" id="hasDocumentNo" name="document"
+                                                                value=false>
+                                                            <span class="radio-control"></span>
+                                                            <span class="radio-label">Sənədsiz</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="peopleCount" class="input-label">Yaşayan şəxslərin sayı</label>
+                                                        <input type="number" ngModel formControlName="peopleCount" class="input-control" placeholder="Say">
+                                                        <div class="text-danger" *ngIf="peopleCount.hasError('required') && peopleCount.touched"><div>The people count is required</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="totalArea" class="input-label">Ümumi sahəsi (kV)</label>
+                                                        <input type="number" ngModel formControlName="totalArea" class="input-control" placeholder="Sahə">
+                                                        <div class="text-danger" *ngIf="totalArea.hasError('required') && totalArea.touched"><div>The total area is required</div></div> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="input-wrapper m-b-20">
+                                                        <label for="roomCount" class="input-label">Otaq sayı</label>
+                                                        <input type="number" ngModel formControlName="roomCount" class="input-control" placeholder="Say">
+                                                        <div class="text-danger" *ngIf="roomCount.hasError('required') && roomCount.touched"><div>The room count is required</div></div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h3
+                                                class="layout-holder__content__body__form__holder__section__area__title">
+                                                Mənzil və ya fərdi evin
+                                                şəkilləri</h3>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="input-wrapper m-b-20 ">
+                                                        <div class="fileupload">
+                                                            <span class="fileupload-placeholder">Fayl</span>
+                                                            <label for="file"
+                                                                class="fileupload-button btn btn-small btn-primary" (click)="Upload()">Yüklə<input
+                                                                    id="file" multiple type="file" (change)="handleFileInput($event)"></label>
+                                                        </div>
+                                                        <div class="fileupload-list">
+                                                            <div class="fileupload-file">
+                                                                <span class="fileupload-file__remove icon-times"></span>
+                                                                <span class="fileupload-file__name">photo 1</span>
+                                                            </div>
+                                                            <div class="fileupload-file">
+                                                                <span class="fileupload-file__remove icon-times"></span>
+                                                                <span class="fileupload-file__name">photo 2</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-fluid btn-transparent">Mənzil əlavə
+                                et</button>
+                        </div>
+    
+                    </div>
+                    <div class="layout-holder__content__body__form__footer">
+                        <button class="btn btn-fluid btn-primary">GÖNDƏR</button>
+                    </div>
+                </div>
+                <app-footer></app-footer>
+            </div>
+        </form>
+    </div>
+
+   
+</div>
